@@ -7,4 +7,5 @@
 ### 🚀 Silver
 | 문제번호 | 링크 |
 | ----- | ----- |
+|1543. 문서 검색|[링크](./%EB%B0%B1%EC%A4%80/Silver/1543.%E2%80%85%EB%AC%B8%EC%84%9C%E2%80%85%EA%B2%80%EC%83%89/%EB%AC%B8%EC%84%9C%E2%80%85%EA%B2%80%EC%83%89.java)|
 |20044. Project Teams|[링크](./%EB%B0%B1%EC%A4%80/Silver/20044.%E2%80%85Project%E2%80%85Teams/Project%E2%80%85Teams.java)|
