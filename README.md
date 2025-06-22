@@ -12,6 +12,7 @@
 ### 🚀 Silver
 | 문제번호 | 링크 |
 | ----- | ----- |
+|1003. 피보나치 함수|[링크](./%EB%B0%B1%EC%A4%80/Silver/1003.%E2%80%85%ED%94%BC%EB%B3%B4%EB%82%98%EC%B9%98%E2%80%85%ED%95%A8%EC%88%98/README.md)|
 |11501. 주식|[링크](./%EB%B0%B1%EC%A4%80/Silver/11501.%E2%80%85%EC%A3%BC%EC%8B%9D/README.md)|
 |1459. 걷기|[링크](./%EB%B0%B1%EC%A4%80/Silver/1459.%E2%80%85%EA%B1%B7%EA%B8%B0/README.md)|
 |1543. 문서 검색|[링크](./%EB%B0%B1%EC%A4%80/Silver/1543.%E2%80%85%EB%AC%B8%EC%84%9C%E2%80%85%EA%B2%80%EC%83%89/README.md)|
