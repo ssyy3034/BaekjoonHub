@@ -1,20 +1,17 @@
 dp = [0]*12
-def case(x):
-    if x == 1:
-        return 1
-    if x == 2:
-        return 2
-    if x == 3:
-        return 4
-    if dp[x] >0:
-        return dp[x]
-    dp[x] =  case(x-1) + case(x-2) + case(x-3)
-    return dp[x]
+
+dp[1] = 1
+dp[2] = 2
+dp[3] = 4
+
+    # 반복문으로 dp 배열 채우기
+for i in range(4, 12):
+    dp[i] = dp[i - 1] + dp[i - 2] + dp[i - 3]
 
 tc = int(input())
 for i in range(tc):
     n = int(input())
-    print(case(n))
+    print(dp[n])
 
 
 
