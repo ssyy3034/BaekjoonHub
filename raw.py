@@ -1,11 +1,21 @@
-def insert_sort(arr):
-    for i in range(1, len(arr)):
-        key = arr[i]
-        j = i - 1
-        while j>= 0 and key <arr[j]: # j==0이면 탐색 끝, key > arr[j] 면 위치 찾아서 탐색 끝
-            arr[j + 1] = arr[j]
-            j -= 1
-        arr[j + 1] = key
-    return arr
-random_num_list = [1,6,7,4,3,2,6,8,10]
-print(insert_sort(random_num_list))
+tc = int(input())
+T_list =[]
+P_list = []
+for i in range(tc):
+    T,P = map(int, input().split())
+    T_list.append(T)
+    P_list.append(P)
+
+max_sum = 0
+def time_check(idx,hap):
+    global max_sum
+    if idx >= len(T_list):
+        max_sum = max(max_sum, hap)
+        return
+
+
+    if idx+T_list[idx] <= tc:
+        time_check(idx + T_list[idx], hap + P_list[idx])
+    time_check(idx+1,hap)
+time_check(0,0)
+print(max_sum)

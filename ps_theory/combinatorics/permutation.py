@@ -18,6 +18,6 @@ def recur(idx):
             pm.append(arr[i])
             recur(idx + 1)
             pm.pop()
-            check[i] = 0
+            check[i] = 0    
 
 recur(0)
