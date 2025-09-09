@@ -7,6 +7,11 @@
 | 문제번호 | 링크 |
 | ----- | ----- |
 |inspectionProfiles|[링크](./.idea/inspectionProfiles/Project_Default.xml)|
+### 🚀 ps_theory
+| 문제번호 | 링크 |
+| ----- | ----- |
+|combinatorics|[링크](./ps_theory/combinatorics/combination.py)|
+|sorting|[링크](./ps_theory/sorting/bubble_sort.py)|
 ## 📚 백준
 ### 🚀 Bronze
 | 문제번호 | 링크 |
