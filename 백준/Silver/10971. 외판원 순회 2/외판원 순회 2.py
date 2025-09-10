@@ -1,25 +1,28 @@
 N = int(input())
-t_list = [list(map(int, input().split())) for _ in range(N)]
-
+W = [list(map(int, input().split())) for _ in range(N)]
+min_cost = 100000000000
 visited = [False] * N
-min_sum = 10000000
 
-def dfs(here, cnt, cost):
-    global min_sum
-    if cost >= min_sum:
+def search(curr, cnt,cost):
+    global min_cost
+    if cost >= min_cost:
         return
 
     if cnt == N:
-        if t_list[here][0] != 0:
-            min_sum = min(min_sum, cost + t_list[here][0])
+        if W[curr][0] != 0:
+            min_cost = min(min_cost,cost+W[curr][0])
         return
 
     for nxt in range(N):
-        if (not visited[nxt]) and t_list[here][nxt] != 0:
+        if not visited[nxt] and W[curr][nxt] != 0:
             visited[nxt] = True
-            dfs(nxt, cnt + 1, cost + t_list[here][nxt])
+            search(nxt, cnt + 1,cost + W[curr][nxt])
             visited[nxt] = False
 
 visited[0] = True
-dfs(0, 1, 0)
-print(min_sum)
+search(0,1,0)
+print(min_cost)
+
+
+
+
