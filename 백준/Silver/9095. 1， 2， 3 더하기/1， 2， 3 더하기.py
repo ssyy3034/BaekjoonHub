@@ -1,19 +1,13 @@
-dp = [0]*12
+case = [0]*12
 
-dp[1] = 1
-dp[2] = 2
-dp[3] = 4
-
-    # 반복문으로 dp 배열 채우기
+case[1] = 1
+case[2] = 2
+case[3] = 4
 for i in range(4, 12):
-    dp[i] = dp[i - 1] + dp[i - 2] + dp[i - 3]
+    case[i] = case[i-1] + case[i-2] +case[i-3]
 
-tc = int(input())
-for i in range(tc):
-    n = int(input())
-    print(dp[n])
+n = int(input())
 
-
-
-
-
+for _ in range(n):
+    number = int(input())
+    print(case[number])
