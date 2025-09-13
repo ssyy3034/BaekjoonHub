@@ -15,10 +15,9 @@ trees.sort()
 high = max(trees)
 low = 0
 max_cut = 0
-mid = 0
 while low <= high:
     mid = (low + high) // 2
-    tree_high = 0# low가 high에 닿을때까지
+    tree_high = 0
     for tree in trees:
           # 자르는 높이
         if tree > mid:

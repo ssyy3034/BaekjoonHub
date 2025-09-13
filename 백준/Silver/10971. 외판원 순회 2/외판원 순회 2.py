@@ -22,7 +22,3 @@ def search(curr, cnt,cost):
 visited[0] = True
 search(0,1,0)
 print(min_cost)
-
-
-
-
