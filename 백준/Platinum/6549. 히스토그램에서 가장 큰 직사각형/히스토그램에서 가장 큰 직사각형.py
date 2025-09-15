@@ -11,7 +11,7 @@ while True:
     stack = []
     max_area = 0
 
-    for i,height in enumerate(h):
+    for i,height in enumerate(h): # 스택의 요소를 반복한다
 
         start_idx = i
         while stack and stack[-1][1] > height: #height가 맨 위 스택의 높이보다 낮다면
