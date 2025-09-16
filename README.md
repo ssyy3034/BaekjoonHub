@@ -63,6 +63,7 @@
 |2812. 크게 만들기|[링크](./%EB%B0%B1%EC%A4%80/Gold/2812.%E2%80%85%ED%81%AC%EA%B2%8C%E2%80%85%EB%A7%8C%EB%93%A4%EA%B8%B0/README.md)|
 |8983. 사냥꾼|[링크](./%EB%B0%B1%EC%A4%80/Gold/8983.%E2%80%85%EC%82%AC%EB%83%A5%EA%BE%BC/README.md)|
 |9663. N－Queen|[링크](./%EB%B0%B1%EC%A4%80/Gold/9663.%E2%80%85N%EF%BC%8DQueen/README.md)|
+|9935. 문자열 폭발|[링크](./%EB%B0%B1%EC%A4%80/Gold/9935.%E2%80%85%EB%AC%B8%EC%9E%90%EC%97%B4%E2%80%85%ED%8F%AD%EB%B0%9C/README.md)|
 ### 🚀 Platinum
 | 문제번호 | 링크 |
 | ----- | ----- |
