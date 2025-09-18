@@ -1,29 +1,23 @@
+
 from collections import deque
 
-# 테스트 케이스 개수 입력
 T = int(input())
-
 for _ in range(T):
-    N, M = map(int, input().split())
-    priorities = list(map(int, input().split()))
+    n,m = map(int, input().split())
+    priority = list(map(int, input().split()))
 
-    # (중요도, 원래 인덱스)를 저장할 큐
-    queue = deque([(p, idx) for idx, p in enumerate(priorities)])
-
+    queue = deque([(p,idx) for idx,p in enumerate(priority)])
+    #큐에 넣고 0번은 우선순위,1번은 인덱스로 저장함
+    #현재 큐에서 하나를 뽑고, 이 문서의 중요도 검사 ( 0 번 인덱스 비교)
+    #만약 중요도가 높은 문서가 뒤에 있다면, 그냥 다시 큐에 넣고 아니라면 그대로 pop하고 카운트 증가. 만약 Pop하면서 문서가 찾는 문서라면 print하고 브레이크
     count = 0
     while queue:
-        # 1. 큐에서 문서 하나를 꺼냄
-        current_doc = queue.popleft()
+        curr = queue.popleft()
 
-        # 2. 나머지 문서 중 중요도가 더 높은 게 있는지 확인
-        # any()는 하나라도 참이면 True를 반환
-        if any(current_doc[0] < other_doc[0] for other_doc in queue):
-            # A) 있다면, 맨 뒤로 보냄
-            queue.append(current_doc)
+        if any(curr[0] < other[0] for other in queue):
+            queue.append(curr)
         else:
-            # B) 없다면 (자신이 가장 중요하다면)
             count += 1
-            # 우리가 찾던 문서라면 정답 출력 후 종료
-            if current_doc[1] == M:
+            if curr[1] == m:
                 print(count)
                 break
