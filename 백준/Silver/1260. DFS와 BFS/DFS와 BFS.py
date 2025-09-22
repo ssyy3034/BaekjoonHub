@@ -1,41 +1,51 @@
+import sys
+sys.setrecursionlimit(10**6)
 from collections import deque
 
-n,m,v = map(int,input().split())
+n,m,v = map(int, input().split())
+
 graph = [[] for _ in range(n+1)]
 
 for _ in range(m):
-    v1,v2 = map(int, input().split())
+    a,b = map(int, input().split())
+    graph[a].append(b)
+    graph[b].append(a)
 
-    graph[v1].append(v2)
-    graph[v2].append(v1)
-for i in range(1, n+1):
+
+for i in range(1,n+1):
     graph[i].sort()
 
-visited_dfs = [False]*(n+1)
+dfs_visited = [0 for _ in range(n+1)]
 dfs_result = []
 
-def dfs(v):
 
-    visited_dfs[v] = True
-    dfs_result.append(v)
-    for next in graph[v]:
-        if not visited_dfs[next]:
-            dfs(next)
+def dfs(node):
+    dfs_visited[node] = 1
+    dfs_result.append(node)
 
-visited_bfs = [False]*(n+1)
+    for nxt in graph[node]:
+        if not dfs_visited[nxt]:
+            dfs(nxt)
+
+bfs_visited = [0 for _ in range(n+1)]
 bfs_result = []
-def bfs(start_v):
-    q = deque([start_v])
-    visited_bfs[start_v] = True
+
+def bfs(node):
+    q = deque()
+    q.append(node)
+    bfs_visited[node] = 1
     while q:
-        v = q.popleft()
-        bfs_result.append(v)
-        for next in graph[v]:
-            if not visited_bfs[next]:
-                q.append(next)
-                visited_bfs[next] = True
+        curr = q.popleft()
+        bfs_result.append(curr)
+        for nxt in graph[curr]:
+            if not bfs_visited[nxt]:
+                q.append(nxt)
+                bfs_visited[nxt] = 1
+
+
 dfs(v)
 bfs(v)
+
 print(*dfs_result)
 print(*bfs_result)
 
