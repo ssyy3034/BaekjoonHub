@@ -1,48 +1,33 @@
 import sys
-from collections import deque
 
 sys.setrecursionlimit(10 ** 6)
-readline = sys.stdin.readline
-
-# 1. 입력 처리 (변경 없음)
-n = int(readline())
-locations = [0] + list(map(int, readline().rstrip()))
-graph = [[] for _ in range(n + 1)]
-for _ in range(n - 1):
-    u, v = map(int, readline().split())
-    graph[u].append(v)
-    graph[v].append(u)
-
-total_count = 0
-
-
-for i in range(1, n + 1):
-    if locations[i] == 0:  
-        indoor_neighbors = 0
-
-        for neighbor in graph[i]:
-            if locations[neighbor] == 1:
-                indoor_neighbors += 1
-
-        total_count += indoor_neighbors * (indoor_neighbors - 1)
+N = int(sys.stdin.readline())  # 정점수
+A = [0] + list(map(int, sys.stdin.readline().strip()))  # 실외 실내 정보를 노드 인덱스 1과 맞추기 위해 [0] 추가
+tree = [[] for _ in range(N + 1)]  # 빈공간 생성
+visit = [0] * (N + 1)  # 방문 체크
+ans = 0
+res = 0
+for _ in range(N - 1):
+    a, b = map(int, sys.stdin.readline().split())
+    tree[a].append(b)
+    tree[b].append(a)
+    if A[a] == 1 and A[b] == 1:  # 둘다 실내일때 경우
+        ans += 2  # 서로 방문하는 케이스가 2개
 
 
-visited = [False] * (n + 1)
-for i in range(1, n + 1):
-    if locations[i] == 1 and not visited[i]:
-        component_size = 0
-        q = deque([i])
-        visited[i] = True
+def dfs(v, cnt):  # cnt 실외와 연결된 실내 노드 개수
+    visit[v] = 1
+    for i in tree[v]:
+        if A[i] == 0 and visit[i] == 0:  # 내 외 내 내 외 일경우 마지막 외가 카운팅 안되는 반례
+            cnt = dfs(i, cnt)  # 해당 실외 기점으로 재귀
+        elif A[i] == 1 and visit[i] == 0:  # 실내면서 방문하지않았다면
+            cnt += 1
+    return cnt
 
-        while q:
-            curr_node = q.popleft()
-            component_size += 1
-            for neighbor in graph[curr_node]:
-                if locations[neighbor] == 1 and not visited[neighbor]:
-                    visited[neighbor] = True
-                    q.append(neighbor)
 
-        total_count += component_size * (component_size - 1)
+for i in range(1, N + 1):
+    if visit[i] == 0 and A[i] == 0:  # 방문안한 실외를 기준으로
+        x = dfs(i, 0)  # dfs시작 cnt는 시작이 0
+        res += x * (x - 1)  # 실외를 기준으로 인접한 실내 점 n개가 있을때 경로는 n(n-1)개이다
 
-# 최종 결과 출력
-print(total_count)
+print(res + ans)
