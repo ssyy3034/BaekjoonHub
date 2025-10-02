@@ -1,21 +1,19 @@
-n = int(input())
+K = int(input())
 
 # dp 테이블 초기화 (인덱스를 1부터 사용하기 위해 n+1 크기로)
-dp = [0] * (n + 1)
+dp = [-1] * (K + 1)
+def recur(n):
+    if n == 1:
+        return 0
 
-# 2부터 n까지 반복하며 dp 테이블을 채움
-for i in range(2, n + 1):
-    # 1. 현재 수에서 1을 빼는 경우
-    dp[i] = dp[i-1] + 1
-    
-    # 2. 현재 수가 2로 나누어 떨어지는 경우
-    if i % 2 == 0:
-        # 기존 값(1을 뺀 경우)과 2로 나눈 경우 중 더 작은 값으로 갱신
-        dp[i] = min(dp[i], dp[i//2] + 1)
-        
-    # 3. 현재 수가 3으로 나누어 떨어지는 경우
-    if i % 3 == 0:
-        # 기존 값과 3으로 나눈 경우 중 더 작은 값으로 갱신
-        dp[i] = min(dp[i], dp[i//3] + 1)
+    if dp[n] != -1:
+        return dp[n]
 
-print(dp[n])
+    result = 1+recur(n-1)
+    if n % 2 == 0:
+        result = min(result,recur(n//2)+1)
+    if n % 3 == 0:
+        result = min(result,recur(n//3)+1)
+    dp[n] = result
+    return result
+print(recur(K))

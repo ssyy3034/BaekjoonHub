@@ -1,20 +1,19 @@
-from collections import deque
-
 n = int(input())
-
-board = [([0]* n)for i in range (n)]
-
-apple = []
-k = int(input())
-for _ in range(k):
-    input_row, input_col = map(int, input().split())
-    apple_row, apple_col = input_row-1,input_col-1
-    board[apple_row][apple_col] = 1
-    apple.append((apple_row,apple_col))
-
-L = int(input())
-change_snake = []
-for _ in range(L):
-    dis,direct = input().split()
-    dis = int(dis)
-    change_snake.append((dis,direct))
+board = [list(map(int,input().split())) for _ in range(n)]
+dp = [[-1 for _ in range(n+1)]for _ in range(n+1)]
+count =0
+def recur(x,y):
+    global count
+    curr = board[x][y]
+    if curr == 0:
+        count +=1
+        return
+    if 0<=x+curr<n and 0<=y+curr<n:
+        if board[x+curr][y] != -1:
+            recur(x+curr,y)
+        if board[x][y+curr] !=-1:
+            recur(x,y+curr)
+    else:
+        return
+recur(0,0)
+print(count)
