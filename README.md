@@ -168,3 +168,7 @@
 |9012. 괄호|[링크](./%EB%B0%B1%EC%A4%80/Silver/9012.%E2%80%85%EA%B4%84%ED%98%B8/README.md)|
 |9020. 골드바흐의 추측|[링크](./%EB%B0%B1%EC%A4%80/Silver/9020.%E2%80%85%EA%B3%A8%EB%93%9C%EB%B0%94%ED%9D%90%EC%9D%98%E2%80%85%EC%B6%94%EC%B8%A1/README.md)|
 |9095. 1， 2， 3 더하기|[링크](./%EB%B0%B1%EC%A4%80/Silver/9095.%E2%80%851%EF%BC%8C%E2%80%852%EF%BC%8C%E2%80%853%E2%80%85%EB%8D%94%ED%95%98%EA%B8%B0/README.md)|
+### 🚀 Unrated
+| 문제번호 | 링크 |
+| ----- | ----- |
+|24904. Baekjoon Wordline Judge|[링크](./%EB%B0%B1%EC%A4%80/Unrated/24904.%E2%80%85Baekjoon%E2%80%85Wordline%E2%80%85Judge/Baekjoon%E2%80%85Wordline%E2%80%85Judge.txt)|
